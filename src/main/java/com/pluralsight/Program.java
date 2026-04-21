@@ -4,17 +4,17 @@ import java.util.Scanner;
 
 public class Program {
     static Scanner input = new Scanner(System.in);
-    static Book[] books = new Book[20];//      <-- why this works
+    static Book[] books = new Book[20];//      <-- why this works (probably the static)
 
     public static void main(String[] args) {
 
 
         //Book[] books = new Book[20];      <-- revisit to know why this gave issues
-        books[0] = new Book(30306, "9780156030304", "Flowers for Algernon", true, "Daniel Keyes");
-        books[1] = new Book(97318, "9780743297318", "Look Homeward, Angel", true, "Thomas Wolfe");
-        books[2] = new Book(29936, "9780545229937", "The Hunger Games, Book One", true, "Suzanne Collins");
-        books[3] = new Book(27336, "9780316327336", "Twilight", false, "Stephenie Meyer");
-        books[4] = new Book(15005, "9780062315007", "The Alchemist", false, "Paulo Coelho");
+        books[0] = new Book(303, "9780156030304", "Flowers for Algernon", true, "Daniel Keyes");
+        books[1] = new Book(973, "9780743297318", "Look Homeward, Angel", true, "Thomas Wolfe");
+        books[2] = new Book(299, "9780545229937", "The Hunger Games, Book One", true, "Suzanne Collins");
+        books[3] = new Book(273, "9780316327336", "Twilight", false, "Stephenie Meyer");
+        books[4] = new Book(150, "9780062315007", "The Alchemist", false, "Paulo Coelho");
 
         boolean programIsRunning = true;
 
@@ -53,17 +53,28 @@ public class Program {
     }
 
     // would keep receiving that every array element is null
-    public static void displayFirstPage() {
+    public static int displayFirstPage() {//                            <--- changed type to int to test break statement, should revert to void
         System.out.println("Here are all of the available books.");
+        System.out.println("");
         for (int index = 0; index <= books.length - 1; index++) {
             if (books[index] != null) {
                 books[index].showAvailableBooks();
             }
-
-
         }
-
+        System.out.println("");
+        System.out.println("Press [C] to select a book to check out.");
+        System.out.println("Press [X] to go back.");
+        String command2 = input.nextLine();
+        if (command2.equals("c") || command2.equals("C")) {
+            // code for checking out goes here
+            System.out.print("Please enter your first and last name: ");
+            String nameInput = input.next();
+        } else if (command2.equals("x") || command2.equals("X")) {
+            System.out.println("Thanks for stopping by!");
+        }
+        return 0;
     }
+
     public static void displaySecondPage() {
         System.out.println("Here are all the books that are currently checked out.");
         //display ID, ISBN, Title, Name of Person with book
