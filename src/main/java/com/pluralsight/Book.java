@@ -63,4 +63,8 @@ public class Book {
     public void setCheckedOutTo(String checkedOutTo) {
         this.checkedOutTo = checkedOutTo;
     }
+
+    public void showAvailableBooks() {
+        System.out.println(getId() + " " + getIsbn() + " " + getTitle());
+    }
 }
