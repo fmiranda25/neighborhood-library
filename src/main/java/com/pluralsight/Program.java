@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Program {
     static Scanner input = new Scanner(System.in);
+    static Book[] books = new Book[20];
 
     public static void main(String[] args) {
 
@@ -51,7 +52,24 @@ public class Program {
     }
     public static void displayFirstPage() {
         System.out.println("Here are all of the available books.");
-        input.nextLine();
+        System.out.println("// Book array code goes here");
+        System.out.println("Press [C] to check out a book. Press [X] to return to home screen.");
+        String proceed1 = input.nextLine();
+        if (proceed1.equals("c") || proceed1.equals("C")) {
+            System.out.println("Please select a book by entering it's number in the list.");
+            System.out.println("// List goes here");
+            int bookNumberInList = input.nextInt();
+            for(Book book : books) {
+                if (/* book index number goes here*/) {
+                    // print out "You have chosen X book
+                    System.out.println("Please enter your first and last name.");
+                    // code for formatting full name into proper capitalization
+                    // code for removing individual book index from array
+                }
+            }
+
+        }
+
         //display ID, ISBN, Title
         //prompt user to either select book to check out, or exit to go back to home screen
         //if user selects book, prompt for name
