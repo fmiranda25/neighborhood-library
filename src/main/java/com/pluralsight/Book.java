@@ -65,7 +65,10 @@ public class Book {
     }
 
     public void showAvailableBooks() {
-        System.out.println(getId() + " " + getIsbn() + " " + getTitle());
+        if (!isCheckedOut) {
+            System.out.println(getId() + " " + getIsbn() + " " + getTitle());
+
+        }
     }
     public static void formatName() {
 
